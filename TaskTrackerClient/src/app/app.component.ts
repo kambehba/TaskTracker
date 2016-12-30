@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Task} from './models/taskModel';
+import {TaskService} from './services/task.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  private tasks:Task[]
+  constructor(private ts:TaskService){
+
+      //this.tasks = this.ts.getTask();
+
+      this.ts.getTask().subscribe(
+          (data:Task[]) => this.tasks = data
+      
+      );
+  }
+
 }
