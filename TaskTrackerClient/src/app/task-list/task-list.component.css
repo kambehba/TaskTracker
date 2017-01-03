@@ -1,0 +1,29 @@
+
+
+.div1{
+    width: 500px;
+    height: 800px;
+    border: goldenrod;
+    margin-left: 200px;
+   
+}
+
+
+.text1{
+    margin-top: 50px;
+    margin-left: 600px;
+    color: snow;
+    font-weight:bold;
+}
+
+.text2{
+    margin-top: 1px;
+    color:navajowhite;
+    font-weight:bold;
+    
+}
+
+.button1{
+    margin-top: 80px;
+    margin-left: 1060px;
+}

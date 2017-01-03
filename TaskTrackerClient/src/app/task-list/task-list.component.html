@@ -1,0 +1,11 @@
+<h1 class="text1">Welcome to Task Manager</h1>
+
+<div  class="container">
+  <button type="button" class="btn btn-primary button1" (click)="goToAddTask()">New Task</button>
+  
+  <h2 class="text2">Active Tasks</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let task of tasks">{{task.description}}</li>
+  </ul>
+</div>
+
