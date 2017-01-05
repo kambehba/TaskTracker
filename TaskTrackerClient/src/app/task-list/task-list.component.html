@@ -4,8 +4,27 @@
   <button type="button" class="btn btn-primary button1" (click)="goToAddTask()">New Task</button>
   
   <h2 class="text2">Active Tasks</h2>
-  <ul class="list-group">
+  <!--<ul class="list-group">
     <li class="list-group-item" *ngFor="let task of tasks">{{task.description}}</li>
-  </ul>
+  </ul>-->
+</div>
+
+<div class="container div2">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text3">Task</th>
+        <th class="text3">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{task.description}}</td>
+        <td>{{task.status}}</td>
+        <td><a>Edit</a></td>
+        <td><a>Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 

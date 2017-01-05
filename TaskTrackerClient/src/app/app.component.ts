@@ -11,17 +11,8 @@ import {TaskService} from './services/task.service';
   
 })
 export class AppComponent {
-  private tasks:Task[]
-  constructor(private ts:TaskService){
+  
+  constructor(){}
 
-      //this.tasks = this.ts.getTask();
-
-      this.ts.getTask().subscribe(
-          (data:Task[]) => this.tasks = data
-      
-      );
-  }
-
- 
 
 }

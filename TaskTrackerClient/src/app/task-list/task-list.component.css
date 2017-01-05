@@ -8,6 +8,11 @@
    
 }
 
+.div2{
+    background:mediumseagreen;
+    border-radius: 25px;
+}
+
 
 .text1{
     margin-top: 50px;
@@ -21,6 +26,13 @@
     color:navajowhite;
     font-weight:bold;
     
+}
+
+.text3{
+    margin-top: 1px;
+    color:white;
+    font-weight:bold;
+    font-size:x-large;
 }
 
 .button1{

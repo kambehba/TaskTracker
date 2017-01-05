@@ -21,7 +21,7 @@ module.exports = function(app){
     //http POST & UPDATE
     app.post('/api/tasks',function(req,res)
     {
-        //CREATE
+        //UPDATE
         if(req.body.id)
         {
             Tasks.findByIdAndUpdate(req.body.id,
@@ -31,11 +31,24 @@ module.exports = function(app){
             },function(err,task){if(err)throw err; res.send('update success');});
         }
 
-        //UPDATE
+        //CREATE
         else
         {
             var newTask = Tasks({description:req.body.description,status:req.body.status});
-            newTask.save();
+            //newTask.save(function(err){if(err)throw err; res.send('success');});
+
+            newTask.save(function(err,result){
+                if(err){
+                    return res.status(500).json({
+                        title:'An Error occured',
+                        error:err
+                    });
+                }
+                res.status(201).json({
+                    message:'saved task',
+                    obj:result
+                });
+            });
         }
         
     });

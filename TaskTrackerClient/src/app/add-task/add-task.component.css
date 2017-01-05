@@ -1,0 +1,32 @@
+.text1{
+    margin-top: 50px;
+    margin-left: 600px;
+    color: snow;
+    font-weight:bold;
+}
+
+.text2{
+    margin-top: 50px;
+    margin-left: 600px;
+    color: snow;
+    font-weight:bold;
+}
+
+.div1{
+    margin-left: 600px;
+}
+
+.div2{
+    margin-top: 10px;
+    margin-left: 600px;
+    margin-bottom: 10px;
+}
+
+.input1{
+    width: 400px;
+    height: 40px;
+}
+
+.button1{
+    margin-left: 600px;
+}
