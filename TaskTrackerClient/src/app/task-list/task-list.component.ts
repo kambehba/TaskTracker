@@ -11,9 +11,14 @@ import {TaskService} from '../services/task.service';
 })
 export class TaskListComponent implements OnInit {
   private tasks:Task[]
+  
+ 
   constructor(private ts:TaskService,private router:Router) { 
+        
        this.ts.getTask().subscribe(
-          (data:Task[]) => this.tasks = data
+          (data:Task[]) => {this.tasks = data},
+          
+        
       
       );
   }
@@ -23,4 +28,21 @@ export class TaskListComponent implements OnInit {
 
    goToAddTask(){this.router.navigate(['addTask']);}
 
-}
+   onDeleteTask(task:Task)
+   {
+     this.ts.deleteTask(task).subscribe(
+          result =>{ console.log(result),this.dothis();}
+      
+      );
+   }
+
+   dothis()
+   {
+     console.log('wwwwwwwwwwwwwwwwwwwwwwwww');
+       this.ts.getTask().subscribe(
+       (data:Task[]) => {this.tasks = data});
+
+   }
+
+}//End of the Class
+

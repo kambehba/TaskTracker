@@ -8,7 +8,6 @@
     <li class="list-group-item" *ngFor="let task of tasks">{{task.description}}</li>
   </ul>-->
 </div>
-
 <div class="container div2">
 <table class="table table-striped">
     <thead>
@@ -21,8 +20,9 @@
       <tr *ngFor="let task of tasks">
         <td>{{task.description}}</td>
         <td>{{task.status}}</td>
-        <td><a>Edit</a></td>
-        <td><a>Delete</a></td>
+         <td>{{task.id}}</td>
+        <td><button class="btn btn-info button2">Edit</button></td>
+        <td><button class="btn btn-danger button2" (click)="onDeleteTask(task)">delete</button></td>
       </tr>
     </tbody>
   </table>
