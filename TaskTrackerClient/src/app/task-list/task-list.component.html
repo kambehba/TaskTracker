@@ -21,7 +21,7 @@
         <td>{{task.description}}</td>
         <td>{{task.status}}</td>
          <td>{{task.id}}</td>
-        <td><button class="btn btn-info button2">Edit</button></td>
+        <td><button class="btn btn-info button2" (click)="onEditTask(task)">Edit</button></td>
         <td><button class="btn btn-danger button2" (click)="onDeleteTask(task)">delete</button></td>
       </tr>
     </tbody>

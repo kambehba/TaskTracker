@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 import {Http,Response,Headers,RequestOptions} from '@angular/http';
 import {Task} from '../models/taskModel';
 import {Observable} from "rxjs";
@@ -9,6 +9,9 @@ export class TaskService {
 
   private tasks:Task[] = [new Task('dafsd','sdfsdf','sdfsdf'),new Task('daf5555sd','sdfsd5555f','5555')];
   private task:Task;
+  private selectedTask:Task;
+  taskSelectedEvent = new EventEmitter<Task>();
+
   constructor(private http:Http) {this.task = new Task('','','') }
 
   //  getTask(){
@@ -46,6 +49,17 @@ export class TaskService {
      //.catch((error:Response)=>Observable.throw(this.handleError));
    }
 
+    editTask(task:Task){
+
+     const body = JSON.stringify(task);
+    
+     const headers = new Headers({'Content-Type':'application/json', 'Accept': 'application/json'});
+     return this.http.post('http://localhost:3000/api/tasks',body,{headers:headers})
+     .map((response:Response)=>response.json())
+     .catch(this.handleError);
+     //.catch((error:Response)=>Observable.throw(this.handleError));
+   }
+
    deleteTask(task:Task)
    {
      //console.log(task.description);
@@ -61,15 +75,22 @@ export class TaskService {
      //.catch((error:Response)=>Observable.throw(this.handleError));
    }
 
+    taskSelectedForEdit(task: Task) {
+        this.taskSelectedEvent.emit(task);
+    }
+
+    setSelectedTask(task:Task){
+      this.selectedTask = task;
+    }
+
+    getSelectedTask(){
+      return  this.selectedTask;
+    }
 
 
-    // deleteTask(task: Task) {
-    //     //this.messages.splice(this.messages.indexOf(message), 1);
-    //     return this.http.delete('http://localhost:3000/api/tasks')
-    //         .map((response: Response) => response.json())
-    //          .catch(this.handleError);
-    //         //.catch((error: Response) => Observable.throw(error.json()));
-    // }
+
+
+
 
 
    private handleError(error:any){

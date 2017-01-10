@@ -28,21 +28,31 @@ export class TaskListComponent implements OnInit {
 
    goToAddTask(){this.router.navigate(['addTask']);}
 
+   onEditTask(task:Task)
+   {
+     //this.ts.taskSelectedEvent.emit(task);
+     //this.router.navigate(['editTask']);
+     this.ts.setSelectedTask(task);
+     this.router.navigate(['editTask']);
+   }
+
+
    onDeleteTask(task:Task)
    {
      this.ts.deleteTask(task).subscribe(
-          result =>{ console.log(result),this.dothis();}
+          result =>{ console.log(result),this.goToTaskList();}
       
       );
    }
 
-   dothis()
+   goToTaskList()
    {
-     console.log('wwwwwwwwwwwwwwwwwwwwwwwww');
        this.ts.getTask().subscribe(
        (data:Task[]) => {this.tasks = data});
 
    }
+
+
 
 }//End of the Class
 
