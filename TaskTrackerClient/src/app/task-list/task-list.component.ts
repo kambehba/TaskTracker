@@ -30,8 +30,6 @@ export class TaskListComponent implements OnInit {
 
    onEditTask(task:Task)
    {
-     //this.ts.taskSelectedEvent.emit(task);
-     //this.router.navigate(['editTask']);
      this.ts.setSelectedTask(task);
      this.router.navigate(['editTask']);
    }

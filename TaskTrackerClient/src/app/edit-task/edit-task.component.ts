@@ -10,7 +10,6 @@ import {Task} from '../models/taskModel';
 })
 export class EditTaskComponent implements OnInit {
   task:Task;
-  private gg:string;
   constructor(private router:Router,private ts:TaskService) { 
     this.task = new Task('','','');
   }
@@ -30,9 +29,5 @@ export class EditTaskComponent implements OnInit {
 
     
     }
-
-
- 
-
 
 }//End of EditTaskComponent

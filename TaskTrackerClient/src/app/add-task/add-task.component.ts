@@ -10,7 +10,6 @@ import {Task} from '../models/taskModel';
 })
 export class AddTaskComponent implements OnInit {
 
-  // constructor(private task:Task,private router:Router,private ts:TaskService) { }
    task:Task;
    
    constructor(private router:Router,private ts:TaskService) { this.task = new Task('','','')}
